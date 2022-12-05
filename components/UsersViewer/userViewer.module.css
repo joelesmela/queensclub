@@ -1,0 +1,37 @@
+.placeholder{
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  border-color: var(--primary-color);
+  color: var(--secondary-color)
+}
+
+.placeholder:focus, .placeholder:active{
+  background-color: var(--bg-color);
+  border-radius: 5px;
+  border-color: var(--primary-color);
+  box-shadow: none;
+  color: var(--secondary-color)
+}
+
+.table {
+  color: var(--secondary-color)
+}
+
+.categories {
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
+  border-radius: 5px;
+  border-color: var(--primary-color);
+  transition: .5s;
+}
+
+.categories:hover {
+  background-color: var(--secondary-color);
+  border-radius: 5px;
+  border-color: var(--primary-color);
+  color: var(--primary-color)
+}
+
+.categories:focus {
+  color: var(--secondary-color)
+}
