@@ -1,0 +1,7 @@
+.text{
+    color: var(--primary-color);
+}
+
+.text:hover{
+    color: var(--primary-color);
+}

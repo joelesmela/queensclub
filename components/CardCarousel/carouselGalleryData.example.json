@@ -1,0 +1,50 @@
+[
+  {
+    "src": "https://secureservercdn.net/198.71.233.83/3xs.6a8.myftpupload.com/wp-content/uploads/2022/03/Portada-Too-Hot-3.jpg",
+    "title": "Xime Ferreyra",
+    "alt": "gallery-carousel-too-hot",
+    "galleryName": "Too Hot",
+    "imageQuantity": 14,
+    "price": 2000
+  },
+  {
+    "src": "https://secureservercdn.net/198.71.233.83/3xs.6a8.myftpupload.com/wp-content/uploads/2022/03/Portada-In-The-Club-1.jpg?time=1648232498",
+    "title": "Ju Zárate",
+    "alt": "gallery-carousel-In-club",
+    "galleryName": "In the club",
+    "imageQuantity": 21,
+    "price": 2000
+  },
+  {
+    "src": "https://secureservercdn.net/198.71.233.83/3xs.6a8.myftpupload.com/wp-content/uploads/2022/03/Portada-Angelic-2.jpg",
+    "title": "Agustina D. Rosario",
+    "alt": "gallery-carousel-Angelic",
+    "galleryName": "Angelic",
+    "imageQuantity": 28,
+    "price": 2000
+  },
+  {
+    "src": "https://secureservercdn.net/198.71.233.83/3xs.6a8.myftpupload.com/wp-content/uploads/2022/03/Portada-Softly-3.jpg",
+    "title": "Abi Gomez",
+    "alt": "gallery-carousel-Softly",
+    "galleryName": "Softly",
+    "imageQuantity": 20,
+    "price": 2000
+  },
+  {
+    "src": "https://secureservercdn.net/198.71.233.83/3xs.6a8.myftpupload.com/wp-content/uploads/2022/02/Portada-Valentines-Day-2.jpg",
+    "title": "Queens Together",
+    "alt": "model-carousel-my-photo",
+    "galleryName": "Valentine Day",
+    "imageQuantity": 23,
+    "price": 2000
+  },
+  {
+    "src": "https://secureservercdn.net/198.71.233.83/3xs.6a8.myftpupload.com/wp-content/uploads/2022/02/Portada-Reddish-1.jpg",
+    "title": "Sofi Giolito",
+    "alt": "model-carousel-Reddish",
+    "galleryName": "Reddish",
+    "imageQuantity": 16,
+    "price": 2000
+  }
+]

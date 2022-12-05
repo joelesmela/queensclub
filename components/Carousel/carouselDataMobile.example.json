@@ -1,0 +1,17 @@
+[
+  {
+    "src": "https://images.unsplash.com/photo-1617922001439-4a2e6562f328?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    "title": "Mary Jane",
+    "alt": "model-carousel-Mary-Jane"
+  },
+  {
+    "src": "https://images.unsplash.com/photo-1623039497055-e79fcaebd4ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+    "title": "Scarlett Lannister",
+    "alt": "model-carousel-Mary-Jane"
+  },
+  {
+    "src": "https://images.unsplash.com/photo-1576828831022-ca41d3905fb7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=423&q=80",
+    "title": "Katheryn Winnick",
+    "alt": "model-carousel-Katheryn-Winnick"
+  }
+]
