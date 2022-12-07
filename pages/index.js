@@ -51,7 +51,7 @@ export async function getStaticProps() {
   const dat = await clientAxios('queen');
   const queens = dat.data;
   return {
-    props: {galleries: galerias, queens },
+    props: { galleries: galerias, queens },
   };
 }
 
