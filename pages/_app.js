@@ -154,7 +154,7 @@ const MyApp = ({ Component, pageProps }) => {
       />
     );
   }
-  if (location === process.env.NEXT_PUBLIC_STATE) {
+  if ((location === process.env.NEXT_PUBLIC_STATE) || (location === process.env.NEXT_PUBLIC_STATE2)) {
     if (role === 'client' || role === undefined) {
       return (
         <Error

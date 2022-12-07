@@ -25,7 +25,7 @@ const Carousel = ({ carouselInfo }) => {
         <div className="carousel-inner">
           {
             carouselInfo.map((info, index) => (
-              <div className={` ${styles.container_gral} carousel-item ${index === 0 ? 'active' : undefined}`} key={info.id}>
+              <div className={` ${styles.container_gral} carousel-item ${index === 0 ? 'active' : undefined}`} key={info?.id}>
 
                 <div className={`${styles.container1} h-100 position-absolute d-flex justify-content-center align-items-center text-uppercase`}>
                   <div className={`${styles.container2} h-100  d-flex flex-column justify-content-center align-items-md-start  align-items-lg-start align-items-center `}>
@@ -36,7 +36,7 @@ const Carousel = ({ carouselInfo }) => {
                     </div>
                   </div>
                 </div>
-                <img src={/* info.photoCarrusel?info.photoCarrusel: */info?.coverImage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /* width={1636} height={960} layout="responsive" */ alt={info.name} />
+                <img src={/* info.photoCarrusel?info.photoCarrusel: */info?.coverImage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /* width={1636} height={960} layout="responsive" */ alt={info?.name} />
               </div>
             ))
           }
