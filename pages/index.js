@@ -46,14 +46,12 @@ const Home = ({ galleries, queens }) => {
 };
 
 export async function getStaticProps() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-  const data = await res.json();
   const dataGalleries = await clientAxios('galleries');
   const galerias = dataGalleries.data;
   const dat = await clientAxios('queen');
   const queens = dat.data;
   return {
-    props: { data, galleries: galerias, queens },
+    props: {galleries: galerias, queens },
   };
 }
 
