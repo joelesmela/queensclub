@@ -10,8 +10,8 @@ const CloudinaryUploadImage = ({ onSave, label }) => {
   const createMyWidget = () => {
     const myWidget = window.cloudinary.createUploadWidget(
       {
-        cloudName: 'lager-devs',
-        uploadPreset: 'sq9ll37y',
+        cloudName: 'dwewicrsv',
+        uploadPreset: 'queens_club',
         sources: [
           'local',
           'url',
