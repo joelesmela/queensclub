@@ -10,26 +10,8 @@ import InfoSubs from '../components/InfoSubs/InfoSubs';
 import clientAxios from '../config/clientAxios';
 import LoaderInit from '../components/Loader/LoaderInit';
 
-const Home = () => {
-  const [queens, setQueens] = useState([]);
-  const [galleries, setGalleries] = useState([]);
+const Home = ({ galleries, queens }) => {
   const [banners, setBanners] = useState([]);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    clientAxios('galleries')
-    .then((res) => {
-      setGalleries(res.data);
-    });
-    clientAxios('queen')
-    .then(res => {
-      setQueens(res.data);
-    })
-    .finally((f) => {
-      setLoading(false);
-    });
-  }, []);
 
   const random = () => {
     const len = queens.length;
@@ -40,7 +22,6 @@ const Home = () => {
     if (queens.length === 0) return;
     setBanners([...banners, queens[random()]]);
   }, [queens]);
-   if (loading) return <LoaderInit/>;
 
   return (
     <div className={styles.bgHome}>
@@ -66,4 +47,13 @@ const Home = () => {
   );
 };
 
+export async function getServerSideProps() {
+ const gal = await clientAxios('galleries');
+ const dataG = gal.data;
+ const que = await clientAxios('queen');
+ const dataQ = que.data;
+ return {
+  props: { galleries: dataG, queens: dataQ },
+};
+}
 export default Home;
