@@ -6,7 +6,7 @@ const CardHome = ({
   coverImage, name,
 }) => {
   return (
-    <div className='m-2 col-md-12 d-flex justify-content-center  position-relative' style={{ height: '600px' }}>
+    <div className='m-2 col-md-12 d-flex justify-content-center  position-relative' style={{ height: '320px' }}>
       <img src={coverImage} alt={name} className={styles.cardHome} />
       <div className='text-center position-absolute h-100 w-100 d-flex justify-content-center align-items-center top-0'>
         <div className={` rounded text-white ${styles.cardInfo}`}>

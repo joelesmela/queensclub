@@ -107,10 +107,11 @@ const MyApp = ({ Component, pageProps }) => {
 
   const solApiGeolocation = (coords) => {
     getGeolocalization(coords.latitude, coords.longitude).then((res) => {
-      /* BTOA A MODIFICAR POR OTRO ENCRIPTADOR */
+      /* BTOA A MODIFICAR  POR OTRO ENCRIPTADOR */
       localStorage.setItem('adsa', btoa(res.data.principalSubdivision));
       setLocation(res.data.principalSubdivision);
       setStatus(false);
+      console.log(res.data);
     });
   };
 

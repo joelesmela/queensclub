@@ -8,9 +8,28 @@ import InfoSection from '../components/InfoSection/InfoSection';
 import ModalSingIn from '../components/ModalSingIn/ModalSingIn';
 import InfoSubs from '../components/InfoSubs/InfoSubs';
 import clientAxios from '../config/clientAxios';
+import LoaderInit from '../components/Loader/LoaderInit';
 
-const Home = ({ galleries, queens }) => {
+const Home = () => {
+  const [queens, setQueens] = useState([]);
+  const [galleries, setGalleries] = useState([]);
   const [banners, setBanners] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    clientAxios('galleries')
+    .then((res) => {
+      setGalleries(res.data);
+    });
+    clientAxios('queen')
+    .then(res => {
+      setQueens(res.data);
+    })
+    .finally((f) => {
+      setLoading(false);
+    });
+  }, []);
 
   const random = () => {
     const len = queens.length;
@@ -18,8 +37,10 @@ const Home = ({ galleries, queens }) => {
   };
 
   useEffect(() => {
+    if (queens.length === 0) return;
     setBanners([...banners, queens[random()]]);
-  }, []);
+  }, [queens]);
+   if (loading) return <LoaderInit/>;
 
   return (
     <div className={styles.bgHome}>
@@ -44,15 +65,5 @@ const Home = ({ galleries, queens }) => {
     </div>
   );
 };
-
-export async function getStaticProps() {
-  const dataGalleries = await clientAxios('galleries');
-  const galerias = dataGalleries.data;
-  const dat = await clientAxios('queen');
-  const reinas = dat.data;
-  return {
-    props: { galleries: galerias, queens: reinas },
-  };
-}
 
 export default Home;
