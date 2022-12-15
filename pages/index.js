@@ -3,7 +3,6 @@ import Head from 'next/head';
 import Carousel from '../components/Carousel/Carousel';
 import Footer from '../components/Footer/Footer';
 import Tab from '../components/Tab/Tab';
-import carouselInfoMobile from '../components/Carousel/carouselDataMobile.example.json';
 import styles from '../styles/Home.module.css';
 import InfoSection from '../components/InfoSection/InfoSection';
 import ModalSingIn from '../components/ModalSingIn/ModalSingIn';
@@ -12,6 +11,7 @@ import clientAxios from '../config/clientAxios';
 
 const Home = ({ galleries, queens }) => {
   const [banners, setBanners] = useState([]);
+
   const random = () => {
     const len = queens.length;
     return Math.floor(Math.random() * len);
@@ -31,7 +31,7 @@ const Home = ({ galleries, queens }) => {
 
       <header>
         <ModalSingIn idModal='singIn' />
-        <Carousel carouselInfo={banners} carouselInfoMobile={carouselInfoMobile} />
+        <Carousel carouselInfo={banners} />
       </header>
 
       <main className='mb-5'>
@@ -46,14 +46,12 @@ const Home = ({ galleries, queens }) => {
 };
 
 export async function getStaticProps() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/todos/1');
-  const data = await res.json();
   const dataGalleries = await clientAxios('galleries');
   const galerias = dataGalleries.data;
   const dat = await clientAxios('queen');
-  const queens = dat.data;
+  const reinas = dat.data;
   return {
-    props: { data, galleries: galerias, queens },
+    props: { galleries: galerias, queens: reinas },
   };
 }
 

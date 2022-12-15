@@ -7,7 +7,6 @@ import styles from '../../styles/Forms.module.css';
 const CloudinaryUploadImage = ({ onSave, label }) => {
   const [images, setImages] = useState([]);
   const [image, setImage] = useState('');
-
   const createMyWidget = () => {
     const myWidget = window.cloudinary.createUploadWidget(
       {
