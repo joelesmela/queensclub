@@ -18,6 +18,7 @@
     "camelcase": "off",
     "no-unused-vars": "warn",
     "no-console": "off",
+    "no-underscore-dangle":["error",{ "allow": ["id_", "_id"] }],
     "arrow-body-style": "off",
     "indent": "warn",
     "consistent-return": "off",

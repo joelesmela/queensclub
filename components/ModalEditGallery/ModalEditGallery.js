@@ -2,21 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import * as Yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useRouter } from 'next/router';
+import Swal from 'sweetalert2';
 import styles from './modalEditGallery.module.css';
 import LoaderInit from '../Loader/LoaderInit';
-
 import CloudinaryUploadImage from '../CloudinaryUploadImage/CloudinaryUploadImage';
+import clientAxios from '../../config/clientAxios';
 
 const ModalEditGallery = ({ galeria }) => {
-  const [threPhotos, setThrePhotos] = useState(galeria?.photosShow);
-  const [photos, setPhotos] = useState(galeria?.photos);
-  const [blur, setBlur] = useState(galeria?.photoBlur);
-  const [cover, setCover] = useState(galeria?.coverPhotoGallery);
-
+  const [threPhotos, setThrePhotos] = useState([]);
+  const [blur, setBlur] = useState('');
+  const [cover, setCover] = useState('');
+  const { push } = useRouter();
   const UpdateUserSchema = Yup.object().shape({
     galleryName: Yup.string().required('Name is required'),
   });
-
   const defaultValues = {
     galleryName: galeria?.galleryName,
     price_USD: galeria?.price_USD,
@@ -31,25 +31,35 @@ const ModalEditGallery = ({ galeria }) => {
   useEffect(() => {
     if (galeria) {
       reset(defaultValues);
+      setThrePhotos(galeria.photosShow);
+      setCover(galeria.coverPhotoGallery);
+      setBlur(galeria.photoBlur);
     }
   }, [galeria]);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    const dataFinish = {
+      _id: galeria._id,
+      galleryName: data.galleryName,
+      price: data.price,
+      price_USD: data.price_USD,
+      photoBlur: blur,
+      coverPhotoGallery: cover,
+      photosShow: threPhotos,
+    };
+    await clientAxios.post('galleries/updateGallerie', dataFinish);
+    Swal.fire('Galeria editada correctamente');
+    push('/galleries');
   };
 
   const handleCover = (data) => {
-    setCover(data);
+    setCover(data[0]);
   };
   const handleThree = (data) => {
     setThrePhotos(data);
   };
   const handleBlur = (data) => {
-    setBlur(data);
-  };
-
-  const handleGaleria = (data) => {
-    setPhotos(data);
+    setBlur(data[0]);
   };
 
   if (galeria === undefined) return <LoaderInit />;
@@ -75,7 +85,7 @@ const ModalEditGallery = ({ galeria }) => {
                 <section className={`w-100 d-flex flex-wrap align-items-center justify-content-center ${styles.container_photos}`}>
                     <div className='col-md-3 m-2'>
                         <h4 className='text-white'>Portada</h4>
-                        <img src={galeria?.coverPhotoGallery} alt={galeria?.galleryName} style={{ width: '100%' }} />
+                        <img src={cover} alt={galeria?.galleryName} style={{ width: '100%' }} />
                     </div>
                     <div className='col-md-3 m-2 d-flex' style={{ border: '1px solid #fff', maxHeight: '50px' }}>
                     <CloudinaryUploadImage onSave={handleCover} label='+ Editar' />
@@ -86,7 +96,7 @@ const ModalEditGallery = ({ galeria }) => {
                 <section className={`w-100 d-flex flex-wrap  align-items-center justify-content-center ${styles.container_photos}`}>
                     <div className='col-md-3 m-2'>
                         <h4 className='text-white'>Foto Blur</h4>
-                        <img src={galeria?.photoBlur} style={{ width: '100%' }} />
+                        <img src={blur} style={{ width: '100%' }} />
                     </div>
                     <div className='col-md-3 m-2 d-flex ' style={{ border: '1px solid #fff', maxHeight: '50px' }}>
                     <CloudinaryUploadImage onSave={handleBlur} label='+ Editar' />
@@ -94,7 +104,7 @@ const ModalEditGallery = ({ galeria }) => {
 
                 </section>
 
-                <h4 className='text-white'>FOTOS SIN CENSURA</h4>
+                {/* <h4 className='text-white'>FOTOS SIN CENSURA</h4>
                 <section className={`w-100 d-flex flex-wrap align-items-center justify-content-center ${styles.container_photos}`}>
 
                     {galeria.photosShow.map((res, i) => {
@@ -108,12 +118,7 @@ const ModalEditGallery = ({ galeria }) => {
                     <div className='col-md-3 m-2 d-flex' style={{ border: '1px solid #fff', maxHeight: '50px' }}>
                         <CloudinaryUploadImage onSave={handleThree} label='+ Agregar' />
                     </div>
-
-                </section>
-                {/* <CloudinaryUploadImage onSave={handleCover} label='+' />
-                 <CloudinaryUploadImage onSave={handleThree} label='+' />
-                 <CloudinaryUploadImage onSave={handleBlur} label='+' /> */}
-
+                </section> */}
                 <button type="submit" className="btn btn-primary">Guardar Cambios</button>
             </form>
         </div>
