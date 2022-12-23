@@ -8,7 +8,7 @@ const Tab = ({ galleries, queens }) => {
 
   const className = undefined;
   const long = galleries.length / 2;
-  const longQueen = queens.length /2;
+  const longQueen = queens.length / 2;
   const galleries1 = [];
   const galleries2 = [];
   const queens1 = [];

@@ -48,12 +48,12 @@ const Home = ({ galleries, queens }) => {
 };
 
 export async function getServerSideProps() {
- const gal = await clientAxios('galleries');
- const dataG = gal.data;
- const que = await clientAxios('queen');
- const dataQ = que.data;
- return {
-  props: { galleries: dataG, queens: dataQ },
-};
+  const gal = await clientAxios('galleries');
+  const dataG = gal.data;
+  const que = await clientAxios('queen');
+  const dataQ = que.data;
+  return {
+    props: { galleries: dataG, queens: dataQ },
+  };
 }
 export default Home;
