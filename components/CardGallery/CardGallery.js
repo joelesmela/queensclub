@@ -47,7 +47,7 @@ const CardGallery = ({
       <div className={styles.cardGallery} onClick={index ? handleClick : false } >
 
         <div className='position-relative'>
-          <img className={styles.cardImg} style={{ width: '100%', objectFit: index ? 'cover' : 'contain' }} src={coverPhotoGallery} alt={galleryName}/*  height={1920} width={1200} layout="responsive" quality={100} priority  */ />
+          <img className={styles.cardImg} style={{ width: '100%', objectFit: 'contain' }} src={coverPhotoGallery} alt={galleryName}/*  height={1920} width={1200} layout="responsive" quality={100} priority  */ />
           <div className='text-white px-2 py-1 bg-dark bg-opacity-75 position-absolute bottom-0 end-0 d-flex'>
             <i className="bi bi-camera me-1" />
             <div className={styles.imageQuantity}>{numberPhotos}</div>

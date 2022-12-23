@@ -8,6 +8,7 @@ const Tab = ({ galleries, queens }) => {
 
   const className = undefined;
   const long = galleries.length / 2;
+  const longQueen = queens.length /2;
   const galleries1 = [];
   const galleries2 = [];
   const queens1 = [];
@@ -18,7 +19,7 @@ const Tab = ({ galleries, queens }) => {
   });
 
   queens?.forEach((res, idx) => {
-    if (idx < long) { queens1.push(res); } else { queens2.push(res); }
+    if (idx < longQueen) { queens1.push(res); } else { queens2.push(res); }
   });
 
   return (

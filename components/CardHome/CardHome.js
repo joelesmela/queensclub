@@ -6,11 +6,11 @@ const CardHome = ({
   coverImage, name,
 }) => {
   return (
-    <div className='m-2 col-md-12 d-flex justify-content-center  position-relative' style={{ height: '320px' }}>
+    <div className='m-2 col-md-12'>
       <img src={coverImage} alt={name} className={styles.cardHome} />
-      <div className='text-center position-absolute h-100 w-100 d-flex justify-content-center align-items-center top-0'>
+      <div className='text-center h-100 w-100 d-flex justify-content-center align-items-center'>
         <div className={` rounded text-white ${styles.cardInfo}`}>
-          <h5 className={` p-3 ${styles.titleName}`}>{name}</h5>
+          <h5 className={` px-3 py-1 ${styles.titleName}`}>{name}</h5>
           <Link href={`/galleries/${name}`} passHref>
             <button type="button" className={`btn btn-outline-light m-1 ${styles.buttonStyle}`} >Ver Galerias</button>
           </Link>
