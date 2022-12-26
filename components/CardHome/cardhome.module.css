@@ -37,6 +37,9 @@
 }
 
 @media (max-width: 992px) {
+  .cardHome {
+    min-height: 220px;
+  }
   .cardInfo {
     width: 100%;
     height: 100%;

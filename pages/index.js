@@ -8,7 +8,6 @@ import InfoSection from '../components/InfoSection/InfoSection';
 import ModalSingIn from '../components/ModalSingIn/ModalSingIn';
 import InfoSubs from '../components/InfoSubs/InfoSubs';
 import clientAxios from '../config/clientAxios';
-import LoaderInit from '../components/Loader/LoaderInit';
 
 const Home = ({ galleries, queens }) => {
   const [banners, setBanners] = useState([]);
