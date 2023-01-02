@@ -36,7 +36,7 @@ const Carousel = ({ carouselInfo }) => {
                     </div>
                   </div>
                 </div>
-                <img src={/* info.photoCarrusel?info.photoCarrusel: */info?.coverImage} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /* width={1636} height={960} layout="responsive" */ alt={info?.name} />
+                <img src={/* info.photoCarrusel?info.photoCarrusel: */info?.photoCarrusel} style={{ width: '100%', height: '100%', objectFit: 'cover' }} /* width={1636} height={960} layout="responsive" */ alt={info?.name} />
               </div>
             ))
           }
