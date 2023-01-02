@@ -57,7 +57,7 @@ const Footer = () => {
         </div>
         <div className='row'>
           <div className='col-lg-6 col-md-12 py-3'>
-            <p className={`m-0 text-center ${styles.title}`}>My Queens Club - Todos los derechos reservados © 2022</p>
+            <p className={`m-0 text-center ${styles.title}`}>My Queens Club - Todos los derechos reservados © 2023</p>
           </div>
           <div className='col-lg-6 col-md-12 py-3'>
             <p className={`m-0 text-center ${styles.title}`}>
