@@ -155,7 +155,7 @@ const MyApp = ({ Component, pageProps }) => {
       />
     );
   }
-  if ((location === process.env.NEXT_PUBLIC_STATE) || (location === process.env.NEXT_PUBLIC_STATE2)) {
+  if (location?.toLowerCase().includes('tucum')) {
     if (role === 'client' || role === undefined) {
       return (
         <Error
