@@ -6,13 +6,19 @@ import CardHome from '../components/CardHome/CardHome';
 import styles from '../styles/Galleries.module.css';
 import clientAxios from '../config/clientAxios';
 import LoaderInit from '../components/Loader/LoaderInit';
+import { useShuffle } from '../context/shuffleContext';
 
 const Queens = () => {
   const [data, setData] = useState([]);
+  const { shuffleArray } = useShuffle();
+
   useEffect(() => {
-    clientAxios.get('/queen')
-      .then(res => setData(res.data));
+    clientAxios.get('queen')
+      .then(res => {
+        setData(res.data);
+      });
   }, []);
+  shuffleArray(data);
 
   if (data.length === 0) return <LoaderInit />;
   return (

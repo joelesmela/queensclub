@@ -42,12 +42,12 @@ const CardGallery = ({
   };
 
   return (
-    <div className="m-1">
+    <div className="m-1 ">
 
       <div className={styles.cardGallery} onClick={index ? handleClick : false } >
 
         <div className='position-relative'>
-          <img className={styles.cardImg} style={{ width: '100%', objectFit: 'contain' }} src={coverPhotoGallery} alt={galleryName}/*  height={1920} width={1200} layout="responsive" quality={100} priority  */ />
+          <img className={styles.cardImg} src={coverPhotoGallery} alt={galleryName}/*  height={1920} width={1200} layout="responsive" quality={100} priority  */ />
           <div className='text-white px-2 py-1 bg-dark bg-opacity-75 position-absolute bottom-0 end-0 d-flex'>
             <i className="bi bi-camera me-1" />
             <div className={styles.imageQuantity}>{numberPhotos}</div>
@@ -56,16 +56,16 @@ const CardGallery = ({
             && <>
               <button
                 onClick={() => deleteGallery()}
-                className='btn btn-primary position-absolute'
-                style={{ right: 8, width: 40, height: 40 }}>
+                className={`btn btn-primary position-absolute ${styles.btnAdmin} `}
+                style={{ left: 10 }}>
                 <i className="bi bi-trash"></i>
               </button>
 
               <button
                 onClick={handleGaleria}
                  /* data-bs-toggle="modal" data-bs-target={`#editModal${_id}`} */
-                className='btn btn-primary position-absolute'
-                style={{ right: 55, width: 40, height: 40 }}>
+                className={`btn btn-primary position-absolute ${styles.btnAdmin}`}
+                style={{ left: 58 }}>
                 <i className="bi bi-pencil-square"></i>
               </button>
             </>
@@ -77,7 +77,6 @@ const CardGallery = ({
               ? (
                 <div className="d-flex justify-content-evenly align-items-center px-md-4">
                   <p className={`fw-normal ${styles.titleName}`}>{galleryName}</p>
-                  <p className={`text-secondary fw-light ${styles.titleName}`}>{galleryName}</p>
                 </div>
               )
               : (
@@ -87,8 +86,7 @@ const CardGallery = ({
                     <p className={`fw-light text-end ${styles.priceGallery}`}>${price} |  {price_USD} USD</p>
                   </div>
                   <div className='d-flex justify-content-between align-items-center ps-lg-4'>
-                    <span className={`text-secondary fw-light ${styles.titleName}`}>{galleryName}</span>
-                    <button onClick={() => handleClick()} className={`btn ${styles.button}`}>Suscribete</button>
+                    <button onClick={ handleClick} className={`btn ${styles.button}`}>Suscribete</button>
                   </div>
                 </>
               )
@@ -99,7 +97,7 @@ const CardGallery = ({
   );
 };
 
-CardGallery.propTypes = {
+/* CardGallery.propTypes = {
   src: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   alt: PropTypes.string.isRequired,
@@ -108,10 +106,10 @@ CardGallery.propTypes = {
   price: PropTypes.number.isRequired,
   gallery: PropTypes.bool,
   id: PropTypes.string.isRequired,
-};
+}; */
 
-CardGallery.defaultProps = {
+/* CardGallery.defaultProps = {
   gallery: false,
-};
+}; */
 
 export default CardGallery;

@@ -18,14 +18,14 @@ const Carousel = ({ carouselInfo }) => {
         <div className="carousel-indicators">
           {
             carouselInfo.map((info, index) => (
-              <button type="button" key={info?.id} data-bs-target="#carouselIndicators" data-bs-slide-to={index} className={index === 0 ? 'active' : undefined} aria-current="true" aria-label={`Slide ${index + 1}`} />
+              <button type="button" key={index} data-bs-target="#carouselIndicators" data-bs-slide-to={index} className={index === 0 ? 'active' : undefined} aria-current="true" aria-label={`Slide ${index + 1}`} />
             ))
           }
         </div>
         <div className="carousel-inner">
           {
             carouselInfo.map((info, index) => (
-              <div className={` ${styles.container_gral} carousel-item ${index === 0 ? 'active' : undefined}`} key={info?.id}>
+              <div className={` ${styles.container_gral} carousel-item ${index === 0 ? 'active' : undefined}`} key={index}>
 
                 <div className={`${styles.container1} h-100 position-absolute d-flex justify-content-center align-items-center text-uppercase`}>
                   <div className={`${styles.container2} h-100  d-flex flex-column justify-content-center align-items-md-start  align-items-lg-start align-items-center `}>

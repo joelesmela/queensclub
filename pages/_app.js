@@ -12,6 +12,7 @@ import { getGeolocalization, getState } from '../ipState/ipState';
 import Loader from '../components/Loader/LoaderInit';
 import Error from '../components/Error';
 import Msginitial from '../components/MsgInitial/Msginitial';
+import { ShuffleProvider } from '../context/shuffleContext';
 
 const MyApp = ({ Component, pageProps }) => {
   const [isScreenShoot, setIsScreenShoot] = useState(false);
@@ -111,7 +112,6 @@ const MyApp = ({ Component, pageProps }) => {
       localStorage.setItem('adsa', btoa(res.data.principalSubdivision));
       setLocation(res.data.principalSubdivision);
       setStatus(false);
-      console.log(res.data);
     });
   };
 
@@ -163,13 +163,15 @@ const MyApp = ({ Component, pageProps }) => {
         />
       );
     }
-  } /* */
+  }
 
   return (
     <>
       {status ? (
         <Loader />
       ) : (
+        <ShuffleProvider>
+
         <UserProvider>
           <Msginitial />
           <Head>
@@ -187,6 +189,7 @@ const MyApp = ({ Component, pageProps }) => {
           <Navbar />
           <Component {...pageProps} />
         </UserProvider>
+        </ShuffleProvider>
       )}
     </>
   );

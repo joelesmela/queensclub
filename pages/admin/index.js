@@ -35,7 +35,6 @@ const Admin = () => {
 
             <main className={`p-md-5 ${styles.bgHome} d-flex justify-content-center align-items-center flex-wrap`}>
               <NewQueen setQueen={setQueen} />
-             {/*  <CarouselPhoto /> */}
               <NewGallery queenSelect={queen} />
               <UserViewer />
             </main>

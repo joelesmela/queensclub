@@ -8,10 +8,11 @@ import InfoSection from '../components/InfoSection/InfoSection';
 import ModalSingIn from '../components/ModalSingIn/ModalSingIn';
 import InfoSubs from '../components/InfoSubs/InfoSubs';
 import clientAxios from '../config/clientAxios';
+import { useShuffle } from '../context/shuffleContext';
 
 const Home = ({ galleries, queens }) => {
   const [banners, setBanners] = useState([]);
-
+  const { shuffleArray } = useShuffle();
   const random = () => {
     const len = queens.length;
     return Math.floor(Math.random() * len);
@@ -21,6 +22,8 @@ const Home = ({ galleries, queens }) => {
     if (queens.length === 0) return;
     setBanners([...banners, queens[random()]]);
   }, [queens]);
+  shuffleArray(queens);
+  shuffleArray(galleries);
 
   return (
     <div className={styles.bgHome}>

@@ -114,7 +114,7 @@ const NewQueen = ({ setQueen }) => {
       <div className="mb-3">
         {
           image?.length > 0 ? <button className='btn btn-primary' disabled>Cargar Portada</button>
-            : <CloudinaryUploadImage onSave={handleImage} label="Cargar Portada" />
+            : <CloudinaryUploadImage multiple={false} onSave={handleImage} label="Cargar Portada" />
         }
 
       </div>
@@ -127,7 +127,7 @@ const NewQueen = ({ setQueen }) => {
       <div className="mb-3">
         {
           imageBanner?.length > 0 ? <button className='btn btn-primary' disabled>Cargar Banner</button>
-            : <CloudinaryUploadImage onSave={handleImageBanner} label="Cargar Banner" />
+            : <CloudinaryUploadImage multiple={false} onSave={handleImageBanner} label="Cargar Banner" />
         }
 
       </div>

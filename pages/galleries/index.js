@@ -6,13 +6,15 @@ import CardGallery from '../../components/CardGallery/CardGallery';
 import styles from '../../styles/Galleries.module.css';
 import LoaderInit from '../../components/Loader/LoaderInit';
 import clientAxios from '../../config/clientAxios';
+import { useShuffle } from '../../context/shuffleContext';
 
 const Galleries = ({ galerias }) => {
   const token = localStorage.getItem('accessToken') || undefined;
   const role = token === undefined ? 'client' : jwtDecode(token).role;
+  const { shuffleArray } = useShuffle();
 
   if (galerias === undefined) return <LoaderInit />;
-
+  shuffleArray(galerias);
   return (
 
     <div className={styles.bgHome}>

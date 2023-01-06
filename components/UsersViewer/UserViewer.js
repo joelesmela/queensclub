@@ -143,8 +143,8 @@ const UserViewer = () => {
                         <td>{user.email}</td>
                         <td>{user.role}</td>
                         <td>
-                          <button type="button" onClick={() => deleteUser(user._id)} className="btn btn-danger"><i className="bi bi-trash3"></i></button>
-                          <button type="button" className="btn btn-success mx-2"><i data-bs-target="#edit" data-bs-toggle="modal" className="bi bi-pencil-square"></i></button>
+                          {/* <button type="button" onClick={() => deleteUser(user._id)} className="btn btn-danger"><i className="bi bi-trash3"></i></button>
+                          <button type="button" className="btn btn-success mx-2"><i data-bs-target="#edit" data-bs-toggle="modal" className="bi bi-pencil-square"></i></button> */}
                           </td>
                       </tr>
                     ))
@@ -152,9 +152,9 @@ const UserViewer = () => {
                 </tbody>
               </table>
             }
-        <GeneralModal id='edit'>
+        {/* <GeneralModal id='edit'>
           <h1>lorem jsdjfjsjdf sdfsdjfsd hsdjf skdfgj</h1>
-        </GeneralModal>
+        </GeneralModal> */}
       </div>
     </div>
   );

@@ -4,7 +4,7 @@ import Script from 'next/script';
 import PropTypes from 'prop-types';
 import styles from '../../styles/Forms.module.css';
 
-const CloudinaryUploadImage = ({ onSave, label }) => {
+const CloudinaryUploadImage = ({ onSave, label, multiple = true }) => {
   const [images, setImages] = useState([]);
   const [image, setImage] = useState('');
   const createMyWidget = () => {
@@ -17,7 +17,7 @@ const CloudinaryUploadImage = ({ onSave, label }) => {
           'url',
         ],
         cropping: false,
-        multiple: true,
+        multiple,
         defaultSource: 'local',
         styles: {
           palette: {

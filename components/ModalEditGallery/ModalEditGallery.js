@@ -5,6 +5,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useRouter } from 'next/router';
 import Swal from 'sweetalert2';
 import styles from './modalEditGallery.module.css';
+import style from '../ModalEditQueen/modalEditQueen.module.css';
 import LoaderInit from '../Loader/LoaderInit';
 import CloudinaryUploadImage from '../CloudinaryUploadImage/CloudinaryUploadImage';
 import clientAxios from '../../config/clientAxios';
@@ -13,6 +14,7 @@ const ModalEditGallery = ({ galeria }) => {
   const [threPhotos, setThrePhotos] = useState([]);
   const [blur, setBlur] = useState('');
   const [cover, setCover] = useState('');
+  const [loading, setLoading] = useState(false);
   const { push } = useRouter();
   const UpdateUserSchema = Yup.object().shape({
     galleryName: Yup.string().required('Name is required'),
@@ -38,6 +40,7 @@ const ModalEditGallery = ({ galeria }) => {
   }, [galeria]);
 
   const onSubmit = async (data) => {
+    setLoading(true);
     const dataFinish = {
       _id: galeria._id,
       galleryName: data.galleryName,
@@ -48,6 +51,7 @@ const ModalEditGallery = ({ galeria }) => {
       photosShow: threPhotos,
     };
     await clientAxios.post('galleries/updateGallerie', dataFinish);
+    setLoading(false);
     Swal.fire('Galeria editada correctamente');
     push('/galleries');
   };
@@ -64,7 +68,7 @@ const ModalEditGallery = ({ galeria }) => {
 
   if (galeria === undefined) return <LoaderInit />;
   return (
-        <div className="p-5 d-flex  justify-content-center align-items-center" >
+        <div className="p-5 d-flex   justify-content-center align-items-center" >
             <form onSubmit={handleSubmit(onSubmit)}>
                 <section className='d-flex w-100 justify-content-center flex-wrap' >
                     <div className="mb-3 m-2">
@@ -82,24 +86,24 @@ const ModalEditGallery = ({ galeria }) => {
                 </section>
 
                 <h4 className='text-white'>FOTOS</h4>
-                <section className={`w-100 d-flex flex-wrap align-items-center justify-content-center ${styles.container_photos}`}>
-                    <div className='col-md-3 m-2'>
+                <section className={`w-100 d-flex flex-wrap flex-column align-items-center justify-content-center ${styles.container_photos}`}>
+                    <div className='col-md-3 m-2 '>
                         <h4 className='text-white'>Portada</h4>
                         <img src={cover} alt={galeria?.galleryName} style={{ width: '100%' }} />
                     </div>
                     <div className='col-md-3 m-2 d-flex' style={{ border: '1px solid #fff', maxHeight: '50px' }}>
-                    <CloudinaryUploadImage onSave={handleCover} label='+ Editar' />
+                    <CloudinaryUploadImage multiple={false} onSave={handleCover} label='+ Editar' />
                 </div>
 
                 </section>
 
-                <section className={`w-100 d-flex flex-wrap  align-items-center justify-content-center ${styles.container_photos}`}>
+                <section className={`w-100 d-flex flex-wrap flex-column  align-items-center justify-content-center ${styles.container_photos}`}>
                     <div className='col-md-3 m-2'>
                         <h4 className='text-white'>Foto Blur</h4>
                         <img src={blur} style={{ width: '100%' }} />
                     </div>
                     <div className='col-md-3 m-2 d-flex ' style={{ border: '1px solid #fff', maxHeight: '50px' }}>
-                    <CloudinaryUploadImage onSave={handleBlur} label='+ Editar' />
+                    <CloudinaryUploadImage multiple={false} onSave={handleBlur} label='+ Editar' />
                     </div>
 
                 </section>
@@ -119,7 +123,17 @@ const ModalEditGallery = ({ galeria }) => {
                         <CloudinaryUploadImage onSave={handleThree} label='+ Agregar' />
                     </div>
                 </section> */}
-                <button type="submit" className="btn btn-primary">Guardar Cambios</button>
+                <div className='w-100 d-flex justify-content-center'>
+                  {
+                    loading
+                      ? <button disabled className={`btn btn-primary ${style.btnLoading}`}>
+                    <div className="spinner-border" role="status">
+                    </div>
+                    </button>
+                      : <button type="submit" className={`btn btn-primary ${style.btnSave}`}>Guardar Cambios</button>
+                  }
+
+                </div>
             </form>
         </div>
   );

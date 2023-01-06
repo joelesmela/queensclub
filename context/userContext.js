@@ -1,6 +1,8 @@
 import jwtDecode from 'jwt-decode';
 import { useRouter } from 'next/router';
-import { createContext, useState, useContext, useEffect } from 'react';
+import {
+  createContext, useState, useContext, useEffect,
+} from 'react';
 
 export const UserContext = createContext();
 
@@ -10,11 +12,10 @@ export const useUser = () => {
 };
 
 export const UserProvider = ({ children }) => {
-  
   const [userData, setUserData] = useState({});
   const [flagReload, setFlagReload] = useState(false);
-  const [acept , setAcept] = useState(true);
-  const{push}=useRouter()
+  const [acept, setAcept] = useState(true);
+  const { push } = useRouter();
 
   const getUserData = () => {
     setUserData({
@@ -24,18 +25,17 @@ export const UserProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if(localStorage.getItem('accessToken')){
+    if (localStorage.getItem('accessToken')) {
       getUserData();
+    } else {
+      push('/');
     }
-    else{
-      push('/')
-    }
-    
   }, [flagReload]);
 
-
   return (
-    <UserContext.Provider value={{ acept, setAcept, userData, setUserData, flagReload, setFlagReload }}>
+    <UserContext.Provider value={{
+      acept, setAcept, userData, setUserData, flagReload, setFlagReload,
+    }}>
       { children }
     </UserContext.Provider>
   );

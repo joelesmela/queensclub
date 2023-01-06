@@ -110,7 +110,7 @@ const NewGallery = ({ queenSelect }) => {
         <div>
           <label htmlFor="galeria" className={`form-label ${styles.title}`}>Foto de portada</label>
         </div>
-        <CloudinaryUploadImage onSave={handleCoverPhotoGallery} label="Cargar foto portada" />
+        <CloudinaryUploadImage multiple={false} onSave={handleCoverPhotoGallery} label="Cargar foto portada" />
         <div className='d-flex flex-wrap '>
           {coverPhotoGallery && coverPhotoGallery?.map((or) => {
             return (
@@ -158,7 +158,7 @@ const NewGallery = ({ queenSelect }) => {
           </div>
         </div>
         <div className="mb-3">
-          <CloudinaryUploadImage onSave={handleCensorshipImage} label="Cargar Foto Censurada" />
+          <CloudinaryUploadImage multiple={false} onSave={handleCensorshipImage} label="Cargar Foto Censurada" />
           <div className='d-flex flex-wrap '>
 
             <div className='position-relative'>
